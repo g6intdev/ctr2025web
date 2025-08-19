@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -20,6 +19,7 @@ model User {
   joinedGroups   Group[]
   lapCount       Int      @default(0)
   runnerCategory Category
+  groupName      String?
   runnerCourse   Course
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -37,7 +37,7 @@ model Group {
 
 enum Category {
   indiv
-  group
+  team
 }
 
 enum Course {
