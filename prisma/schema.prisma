@@ -19,7 +19,7 @@ model User {
   joinedGroups   Group[]
   lapCount       Int      @default(0)
   runnerCategory Category
-  groupName      String?
+  teamName      String?
   runnerCourse   Course
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
