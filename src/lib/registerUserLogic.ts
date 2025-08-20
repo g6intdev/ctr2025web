@@ -46,7 +46,10 @@ export default async function registerUserLogic(formData: FormData) {
 
   const user = await registerUserAndReturn(userData.name, userData.course, userData.category, userData.team)
   const cookieStore = await cookies()
-  cookieStore.set('userId', user.userId.toString())
+  cookieStore.set('userId', user.userId.toString(), {
+    maxAge: 3000000,
+    path: '/',
+    sameSite: 'lax'
+  })
   redirect("/dashboard")
-
 }
